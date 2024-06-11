@@ -13,26 +13,33 @@
 .center {
   text-align: center;
 }
+
+.brown {
+  fill: var(--primary2);
+}
+.gold {
+  fill: var(--primary1);
+}
+
 body {
   margin: 0;
   font-family: "Roboto", sans-serif;
   background-color: var(--primary1);
   color: var(--primary2);
-  max-width: 100vw;
   overflow-x: hidden;
 }
 .wrapper {
   position: relative;
   width: 100%;
   max-width: 1400px;
-  padding: 5rem;
+  padding: 5rem 10%;
   box-sizing: border-box;
   margin: auto;
 }
 
 nav {
   position: absolute;
-  width: 100vw;
+  width: 100%;
   font-size: 1.6rem;
   font-weight: 500;
   display: flex;
@@ -69,20 +76,23 @@ nav .icon {
   justify-content: center;
   align-items: center;
   height: 100vh;
+  padding: 5%;
   background: linear-gradient(
     160deg,
     var(--primary1) 30%,
     var(--primary1golden)
   );
+  box-sizing: border-box;
 }
 
 .hero .text {
   display: flex;
   flex-direction: column;
-  font-size: 2rem;
-  margin-right: 10rem;
+  font-size: clamp(1.1rem, 2vw, 2rem);
+  margin-right: 10%;
 }
 .hero .icon {
+  min-width: 300px;
   max-width: 450px;
 }
 .text p {
@@ -90,7 +100,7 @@ nav .icon {
 }
 .text .name {
   margin: 0;
-  font-size: 8rem;
+  font-size: clamp(5rem, 10vw, 8rem);
   line-height: 100%;
   border-bottom: 3px solid var(--primary2);
   margin-bottom: 1rem;
@@ -122,11 +132,63 @@ h3 {
 }
 
 .project-container {
+  width: 100%;
+}
+.project-container img {
+  width: 100%;
+  border-radius: 5px;
+  filter: grayscale(100%) hue-rotate(100deg);
+}
+project-container img::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(
+    --primary1
+  ); /* Change this to any color from your palette */
+  mix-blend-mode: multiply;
+  opacity: 0.5;
 }
 
 footer {
-  text-align: center;
+  background-color: var(--primary2);
+  color: var(--primary1);
+  font-weight: 500;
+  font-size: 1.2rem;
 }
 footer .wrapper {
   padding: 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+@media screen and (max-width: 800px) {
+  .hero {
+    flex-direction: column-reverse;
+    justify-content: start;
+  }
+  .hero .text {
+    margin-right: 0;
+    font-size: clamp(1.1rem, 3vw, 2rem);
+  }
+  .hero .icon {
+    max-width: 400px;
+    padding: 4rem;
+    padding-top: 7rem;
+  }
+  .text .name {
+    margin: 0;
+    font-size: clamp(5rem, 15vw, 8rem);
+    margin-bottom: 1rem;
+  }
+}
+
+@media screen and (max-width: 650px) {
+  nav .links {
+    display: none;
+  }
 }

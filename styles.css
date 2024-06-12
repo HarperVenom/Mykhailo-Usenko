@@ -1,7 +1,7 @@
 :root {
   --primary1: #ff9810;
   --primary2: #58391c;
-  --secondary1: #8d6e63;
+  --secondary1: #352311;
   --secondary2: #f5f5dc;
 
   --primary1golden: #ffba30;
@@ -33,7 +33,7 @@ body {
   position: relative;
   width: 100%;
   max-width: 1400px;
-  padding: 5rem 10%;
+  padding: 5rem 5%;
   box-sizing: border-box;
   margin: auto;
 }
@@ -111,13 +111,15 @@ nav .icon {
 .projects {
   background-color: var(--primary2);
   color: var(--primary1);
+  /* min-height: 150vh; */
 }
 
 h2,
 h3 {
   font-family: "Merriweather";
   font-weight: 800;
-  font-size: 2rem;
+  font-size: 2.5rem;
+  margin: 0;
 }
 h3 {
   font-size: 1.5rem;
@@ -131,28 +133,157 @@ h3 {
     var(--primary1golden)
   );
   background-clip: text;
+  border-bottom: 2px solid var(--primary1golden);
+  margin-bottom: 5rem;
 }
 
 .project-container {
-  width: 100%;
+  width: fit-content;
+  max-width: 1000px;
+  margin: auto;
+  color: var(--primary1golden);
+  box-sizing: border-box;
+  overflow: hidden;
+
+  background-color: var(--secondary1);
+  border-radius: 10px;
+  box-shadow: 0 0 10px var(--secondary1);
 }
-.project-container img {
-  width: 100%;
-  border-radius: 5px;
-  filter: grayscale(100%) hue-rotate(100deg);
+
+.project-container .info {
+  padding: 3rem 2rem 1rem 2rem;
 }
-project-container img::after {
-  content: "";
+.project-container .title {
+  font-style: italic;
+  text-align: center;
+  font-weight: 500;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  margin: 0;
+}
+.project-container .description {
+  text-align: center;
+  color: var(--primary1);
+  width: 70vw;
+  max-width: 650px;
+  font-size: clamp(1rem, 2vw, 1.6rem);
+  margin: 1rem auto;
+}
+.project-container .technologies {
+  text-align: center;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+}
+.project-container .technologies h5 {
+  font-size: clamp(0.8rem, 2vw, 1.3rem);
+  font-weight: 400;
+  margin: 0;
+}
+.project-container .technologies .list {
+  margin: 0.5rem;
+}
+.project-container .technology {
+  background: linear-gradient(to right, var(--primary1), var(--primary1golden));
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  margin: 0.2rem 0.1rem;
+  color: var(--primary2);
+  display: inline-block;
+}
+.project-container .links {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
+  /* border-top: 2px solid var(--primary1golden); */
+}
+.project-container .links > * {
+  cursor: pointer;
+  width: 10%;
+  min-width: 40px;
+  max-width: 60px;
+  height: 10%;
+  margin: 0 0.5rem;
+}
+.project-container .imgs {
+  margin: auto;
+  position: relative;
+  width: fit-content;
+  height: fit-content;
+  max-width: 800px;
+  overflow: hidden;
+  display: flex;
+  box-sizing: border-box;
+
+  display: flex;
+  justify-content: center;
+}
+.project-container .imgs img {
+  left: 50%;
+  transform: translate(-50%, 0);
+  width: fit-content;
+  max-width: 100%;
+  height: 100%;
+  object-fit: contain;
   position: absolute;
-  top: 0;
-  left: 0;
+  border-radius: 5px;
+  opacity: 0;
+  transition: opacity 0.8s ease;
+}
+.project-container .imgs img.active {
+  opacity: 1;
+}
+.project-container .imgs .filler {
+  position: relative;
+  height: unset;
+}
+
+.project-container .img-navigator {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: end;
+}
+.project-container .img-slab {
+  height: 50%;
+  border-bottom: 2px solid var(--primary1golden);
+
+  border-radius: 5px;
+  transition: background 1s ease;
+  margin: 1rem 0.5rem;
+}
+.project-container .img-slab .lighting {
   width: 100%;
   height: 100%;
-  background-color: var(
-    --primary1
-  ); /* Change this to any color from your palette */
-  mix-blend-mode: multiply;
-  opacity: 0.5;
+  background: linear-gradient(transparent 60%, #ffba301c);
+  opacity: 0;
+  transition: opacity 0.5s cubic-bezier(0.4, 0, 1, 1);
+}
+.project-container .img-slab.active .lighting {
+  opacity: 0.9;
+}
+
+.project-container .imgs .mask {
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 5px;
+  width: 100%;
+  height: 100%;
+  opacity: 0.7;
+  background-color: var(--primary1);
+  mix-blend-mode: color;
+}
+.project-container .imgs .overlay {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    /* var(--secondary1),
+    transparent 20%, */ transparent 80%,
+    var(--secondary1)
+  );
 }
 
 footer {

@@ -11,6 +11,10 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&display=swap,https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap"
       rel="stylesheet"
     />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Cutive&family=Ultra&display=swap"
+    />
   </head>
   <body>
     <header>
@@ -42,9 +46,9 @@
               ></path>
             </svg>
             <div class="links">
-              <li>PROJECTS</li>
-              <li>ABOUT</li>
-              <li>CONTACT</li>
+              <li><a href="#projects">PROJECTS</a></li>
+              <li><a href="#about">ABOUT</a></li>
+              <li><a href="#skills">SKILLS</a></li>
             </div>
           </ul>
         </div>
@@ -84,10 +88,9 @@
         </svg>
       </section>
     </header>
-
     <section class="projects">
       <div class="wrapper">
-        <h2>PROJECTS</h2>
+        <h2 id="projects">PROJECTS</h2>
 
         <div class="project-container">
           <div class="info">
@@ -96,6 +99,27 @@
               Interactive movie roadmaps. For people who love to dive deep into
               fictional worlds and fully explore them.
             </p>
+            <div class="about">
+              <p>
+                As a lover of movies and big cinematic universes, I came up with
+                the idea of collecting all the titles on a single page — not as
+                a simple list but in a much more immersive and entertaining way
+                — to make it easy for people to navigate and explore, without
+                constantly searching the internet and trying to figure out
+                connections between titles.
+              </p>
+              <p>
+                I created my own API with a database containing all the titles
+                and figured out a way to build a complex map based on a single
+                data field containing IDs of parent titles.
+              </p>
+              <p>
+                I worked extensively with React states and components, which
+                significantly improved my understanding of these concepts, as
+                well as my understanding of backend development.
+              </p>
+            </div>
+
             <div class="technologies">
               <p class="list">
                 <span class="technology">React</span>
@@ -159,32 +183,48 @@
     </section>
     <section class="about">
       <div class="wrapper">
-        <h2>ABOUT</h2>
+        <h2 id="about">ABOUT ME <span class="subhead"> - Short Story</span></h2>
         <p>
-          As a person who is drawn to creation, previously familiar with the
-          basics of programming and its concepts by creating game plug-ins as a
-          hobby, I began my journey to becoming a professional front-end web
-          developer in February 2024.
+          My journey began in middle school when I started attending programming
+          courses dreaming about becoming a game developer. It was the first
+          time I discovered what programming actually is. I spent two years
+          learning basic languages like Pascal and Delphi. Towards the ended of
+          the second year my motivation faded, and I took a break to explore
+          different art fields.
         </p>
         <p>
-          My goal is to craft memorable experiences for users of web by making
-          clean, untuitive, beautiful and unique web pages for innovative
-          projects that bring value to the world. I care about user experience
-          as a user myself who had a great time spent in the internet, and I
-          want to be among those who work to create such experiences for people
-          every day.
+          Later on, I made another attempt to become a programmer by learning C#
+          on my own, but without any clear goals, I ended up giving up on this
+          idea again.
         </p>
         <p>
-          Although I may not have reached my desired level of professionalism
-          yet, I am dedicated to continuously improving my skills and knowledge.
-          I strive to become the best version of myself and make a meaningful
-          impact in the field.
+          My true obsession with creation through programming ignited when I got
+          the idea to make a plug-in for my own Minecraft server. As a true fan
+          of the game, I wanted to create a unique experience for players like
+          me by implementing new systems and rebalancing the game for better
+          immersion in the survival world. I learnt the basics of Java and all
+          the plugin creation process on my own, and spent a large amount of
+          time working with the language and grasping different concepts.
+          Together with my friend, we went through several versions of the
+          plug-in, thinking through all the details. I really enjoyed
+          integrating all these new features seamlessly into the game and
+          realized the true possibilities of programming.
+        </p>
+        <p>
+          Although we found some appreciators of our creation, we struggled with
+          marketing, leading to the project being put on hold.
+        </p>
+        <p>
+          After that, in February 2024, I decided to take my path in the
+          direction of front-end web developement as an exciting and versitile
+          career, hoping to bring new experiences to users of web by
+          contributing to development of innovative projects.
         </p>
       </div>
     </section>
     <section class="skills">
       <div class="wrapper">
-        <h2>SKILLS</h2>
+        <h2 id="skills">SKILLS</h2>
         <div class="icons">
           <svg
             class="brown"
@@ -278,6 +318,7 @@
     <footer>
       <div class="wrapper">
         <p>&copy; Mykhailo Usenko</p>
+        <!-- <p>Made with vanilla JS</p> -->
         <div class="contact-links">
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -319,6 +360,7 @@
         </div>
       </div>
     </footer>
-    <script src="script.js"></script>
+    <script src="./scripts/project-img-slider.js"></script>
+    <script src="./scripts/page-animations.js"></script>
   </body>
 </html>

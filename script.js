@@ -1,10 +1,8 @@
 const imgsContainer = document.querySelectorAll(".imgs");
 
 imgsContainer.forEach((container) => {
-  const imgs = Array.from(container.children).filter(
-    (element) =>
-      !element.classList.contains("mask") &&
-      !element.classList.contains("overlay")
+  const imgs = Array.from(container.children).filter((element) =>
+    element.classList.contains("img")
   );
 
   const navigator = document.createElement("div");
@@ -13,7 +11,7 @@ imgsContainer.forEach((container) => {
   const slabsArray = [];
 
   let currentIndex = 0;
-  let forcedImgIndex = null;
+  let interval = null;
 
   for (let i = 0; i < imgs.length; i++) {
     const imgSlab = document.createElement("div");
@@ -28,26 +26,25 @@ imgsContainer.forEach((container) => {
     imgSlab.addEventListener("mouseover", () => {
       changeImage(i);
       currentIndex = i;
-      forcedImgIndex = i;
+      clearInterval(interval);
     });
 
     imgSlab.addEventListener("mouseleave", () => {
-      forcedImgIndex = null;
+      interval = setInterval(autoChange, 3000);
     });
   }
 
   container.appendChild(navigator);
 
   changeImage(currentIndex);
+  interval = setInterval(autoChange, 3000);
 
-  setInterval(() => {
-    if (forcedImgIndex != null) return;
-
+  function autoChange() {
     if (currentIndex === imgs.length - 1) currentIndex = 0;
     else currentIndex++;
 
     changeImage(currentIndex);
-  }, 3000);
+  }
 
   function resetSlabs() {
     slabsArray.forEach((slab) => {

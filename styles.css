@@ -1,11 +1,11 @@
 :root {
-  --primary1: #ff9810;
+  --primary1: #ffa836;
   --primary2: #462d16;
   --secondary1: #23170b;
   --secondary2: #3f2f1e;
   --secondary3: #d3bda6;
 
-  --primary1golden: #ffba30;
+  --primary1golden: #ffc34a;
 
   scroll-behavior: smooth;
 }
@@ -69,9 +69,11 @@ nav {
 }
 nav .wrapper {
   padding: 0;
+  position: relative;
 }
 nav ul {
   width: 100%;
+
   display: flex;
   margin: 0;
   padding: 0 1rem;
@@ -81,12 +83,13 @@ nav ul {
 }
 nav .links {
   display: flex;
+  margin: 0.5rem;
 }
 nav ul li {
   list-style-type: none;
-
   position: relative;
   cursor: pointer;
+  display: flex;
 }
 nav a {
   padding: 1.5rem;
@@ -130,19 +133,6 @@ nav .icon {
   box-sizing: border-box;
   min-width: 300px;
   max-width: 450px;
-  animation: spin-in;
-  animation-duration: 1.5s;
-  animation-timing-function: cubic-bezier(0.64, 0.02, 0.07, 0.99);
-}
-@keyframes spin-in {
-  0% {
-    scale: 0;
-    transform: rotate(360deg);
-  }
-  100% {
-    scale: 1;
-    transform: rotate(0deg);
-  }
 }
 .text p {
   margin: 0;
@@ -155,6 +145,18 @@ nav .icon {
   line-height: 100%;
   border-bottom: 3px solid var(--primary2);
   margin-bottom: 1rem;
+}
+
+.contact-links > * {
+  fill: var(--primary2);
+  width: 40px;
+  margin: 0.5rem;
+  stroke-width: 2px;
+}
+.text .contact-links {
+  margin: 0.5rem;
+  display: flex;
+  justify-content: center;
 }
 
 .projects {
@@ -223,7 +225,7 @@ h3 {
   display: flex;
   align-items: center;
   position: relative;
-  margin: 1.5rem 0;
+  margin: 3rem 0;
 }
 .project-container .about-section .show-about {
   position: absolute;
@@ -450,6 +452,39 @@ h3 {
   max-height: 100px;
 }
 
+.go-top {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.go-top a {
+  width: 75px;
+  height: 75px;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  margin: auto;
+  font-size: 1.5rem;
+  font-weight: 600;
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  background-color: var(--primary2);
+  box-shadow: 5px 5px 10px var(--primary2);
+
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+.go-top a:hover {
+  scale: 1.05;
+}
+.go-top a:active {
+  scale: 0.95;
+}
+.go-top svg {
+  transform: rotate(180deg);
+}
+
 footer {
   background-color: var(--primary2);
   color: var(--primary1);
@@ -469,10 +504,7 @@ footer p {
   margin-top: 0.5rem;
 }
 footer .contact-links > * {
-  fill: none;
   fill: var(--primary1);
-  width: 40px;
-  stroke-width: 2px;
 }
 
 @media screen and (max-width: 800px) {
@@ -497,6 +529,9 @@ footer .contact-links > * {
 }
 
 @media screen and (max-width: 650px) {
+  nav .icon {
+    display: none;
+  }
   nav .links {
     display: none;
   }
@@ -525,6 +560,46 @@ footer .contact-links > * {
   }
 }
 
+.hero .icon.hidden,
+nav .icon.hidden {
+  scale: 0;
+  animation: spin-in;
+  animation-duration: 1.5s;
+  animation-timing-function: cubic-bezier(0.64, 0.02, 0.07, 0.99);
+}
+.hero .icon.hidden {
+  transition: none;
+}
+nav .icon.hidden {
+  transition-delay: 2300ms;
+  animation-duration: 1s;
+  animation-delay: 2300ms;
+}
+.hero .icon.show,
+nav .icon.show {
+  scale: 1;
+}
+@keyframes spin-in {
+  0% {
+    scale: 0;
+    transform: rotate(360deg);
+  }
+  100% {
+    scale: 1;
+    transform: rotate(0deg);
+  }
+}
+
+nav li:nth-child(1) {
+  transition-delay: 2400ms;
+}
+nav li:nth-child(2) {
+  transition-delay: 2500ms;
+}
+nav li:nth-child(3) {
+  transition-delay: 2600ms;
+}
+
 .hero .text p:nth-child(1) {
   transition-delay: 1000ms;
 }
@@ -533,15 +608,41 @@ footer .contact-links > * {
 }
 
 .hero .text h1.hidden {
-  scale: 10;
-  transform: none;
-  transition: all 0.4s ease-in;
+  transform: scale(10);
+  transition: all 0.2s cubic-bezier(0, 0, 1, 0.22);
   transition-delay: 1700ms;
 }
+@media screen and (max-width: 500px) {
+  .hero .text h1.hidden {
+    transform: scale(0.1);
+    transition: all 0.2s cubic-bezier(0.3, 0.15, 0.96, -0.15);
+    transition-delay: 1700ms;
+  }
+}
 .hero .text h1.show {
-  scale: 1;
+  transform: scale(1);
 }
 
 .hero .text p:nth-child(4) {
   transition-delay: 2000ms;
+}
+
+.hero .text a:nth-child(1) {
+  transition-delay: 2100ms;
+}
+.hero .text a:nth-child(2) {
+  transition-delay: 2200ms;
+}
+.hero .text a:nth-child(3) {
+  transition-delay: 2300ms;
+}
+
+.icons .hidden:nth-child(2) {
+  transition-delay: 100ms;
+}
+.icons .hidden:nth-child(3) {
+  transition-delay: 200ms;
+}
+.icons .hidden:nth-child(4) {
+  transition-delay: 300ms;
 }

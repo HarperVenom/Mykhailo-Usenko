@@ -124,7 +124,7 @@ nav .icon {
   flex-direction: column;
   font-size: clamp(1rem, 2vw, 2rem);
   margin-right: 5vw;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 .hero .icon {
   box-sizing: border-box;

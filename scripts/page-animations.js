@@ -5,8 +5,8 @@ const observer = new IntersectionObserver(
         entry.target.classList.add("show");
       }
     });
-  },
-  { threshold: 0.1 }
+  }
+  // { root: null, rootMargin: "0px 0px 50% 0px", threshold: 0 }
 );
 
 const hiddenElements = document.querySelectorAll(".hidden");

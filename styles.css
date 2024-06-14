@@ -124,6 +124,7 @@ nav .icon {
   flex-direction: column;
   font-size: clamp(1rem, 2vw, 2rem);
   margin-right: 5vw;
+  overflow: hidden;
 }
 .hero .icon {
   box-sizing: border-box;
@@ -510,8 +511,8 @@ footer .contact-links > * {
 /*Animations*/
 .hidden {
   opacity: 0;
-  transform: translateY(50%);
-  transition: all 0.5s ease;
+  transform: translateY(20%);
+  transition: all 0.7s ease;
 }
 .show {
   transform: translateY(0);
@@ -535,12 +536,12 @@ footer .contact-links > * {
   scale: 10;
   transform: none;
   transition: all 0.4s ease-in;
-  transition-delay: 2300ms;
+  transition-delay: 1700ms;
 }
 .hero .text h1.show {
   scale: 1;
 }
 
 .hero .text p:nth-child(4) {
-  transition-delay: 3000ms;
+  transition-delay: 2000ms;
 }

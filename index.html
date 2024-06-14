@@ -15,6 +15,9 @@
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Bevan:ital@0;1&family=Cutive&family=Ultra&display=swap"
     />
+    <script defer src="./scripts/project-img-slider.js"></script>
+    <script defer src="./scripts/page-animations.js"></script>
+    <script defer src="./scripts/show-about-project.js"></script>
   </head>
   <body>
     <header>
@@ -55,12 +58,12 @@
       </nav>
       <section class="hero">
         <div class="text">
-          <p>
+          <p class="hidden">
             Hello, my name is <span class="merriweather">Mykhailo Usenko</span>.
           </p>
-          <p>You can call me</p>
-          <h1 class="name merriweather">Michael</h1>
-          <p class="center font-big">I am a Front-end Web Developer.</p>
+          <p class="hidden">You can call me</p>
+          <h1 class="name merriweather hidden">Michael</h1>
+          <p class="center font-big hidden">I am a Front-end Web Developer.</p>
         </div>
         <svg
           class="icon"
@@ -99,25 +102,63 @@
               Interactive movie roadmaps. For people who love to dive deep into
               fictional worlds and fully explore them.
             </p>
-            <div class="about">
-              <p>
-                As a lover of movies and big cinematic universes, I came up with
-                the idea of collecting all the titles on a single page — not as
-                a simple list but in a much more immersive and entertaining way
-                — to make it easy for people to navigate and explore, without
-                constantly searching the internet and trying to figure out
-                connections between titles.
-              </p>
-              <p>
-                I created my own API with a database containing all the titles
-                and figured out a way to build a complex map based on a single
-                data field containing IDs of parent titles.
-              </p>
-              <p>
-                I worked extensively with React states and components, which
-                significantly improved my understanding of these concepts, as
-                well as my understanding of backend development.
-              </p>
+
+            <div class="about-section hidden">
+              <button class="show-about" onclick="showAbout(event)">
+                More about the project
+              </button>
+              <div class="about">
+                <h5>The Idea</h5>
+                <p>
+                  As a lover of movies and big cinematic universes, I came up
+                  with the idea of collecting all the titles on a single
+                  page—not as a simple list but in a much more immersive and
+                  entertaining way—to make it easy for people to navigate and
+                  explore, without constantly searching the internet and trying
+                  to figure out connections between titles.
+                </p>
+                <h5>Features</h5>
+                <p>
+                  - I visualized a map of all the titles in the form of a tree
+                  so people could see how each title is connected to another.
+                </p>
+                <p>
+                  - I let users filter the titles by branches, where each branch
+                  tells a story about diffrent heroes and rebuild the map based
+                  on the fiilters. This way, users could customize their
+                  experience.
+                </p>
+                <p>
+                  - I also let users mark each title as completed and save it on
+                  their account so they could track their progress and continue
+                  from where they stopped last time.
+                </p>
+                <h5>Challanges</h5>
+                <p>
+                  It was a real challenge to figure out the way to create a tree
+                  of all titles based on a single data field. I've gone through
+                  several attempts to create the algorithm for placing each
+                  title in a proper spot to avoid making it look messy.
+                </p>
+                <p>
+                  Adding the zoom feature also turned out very difficult for me.
+                  I faced a lot of bugs trying to implement it.
+                </p>
+                <h5>Issues</h5>
+                <p>
+                  Though all the listed challenges are partially overcome, the
+                  result is still not as good as I wanted it to be. The map may
+                  still look unorganized in some cases, and the zoom feature is
+                  far from perfect.
+                </p>
+                <h5>What I learnt</h5>
+                <p>
+                  I spent a lot of time working with React states and
+                  components, which improved my understanding of the concepts. I
+                  also worked with backend and created my own API, which helped
+                  me understand this side of development better.
+                </p>
+              </div>
             </div>
 
             <div class="technologies">
@@ -183,42 +224,25 @@
     </section>
     <section class="about">
       <div class="wrapper">
-        <h2 id="about">ABOUT ME <span class="subhead"> - Short Story</span></h2>
+        <h2 id="about">ABOUT ME</h2>
         <p>
-          My journey began in middle school when I started attending programming
-          courses dreaming about becoming a game developer. It was the first
-          time I discovered what programming actually is. I spent two years
-          learning basic languages like Pascal and Delphi. Towards the ended of
-          the second year my motivation faded, and I took a break to explore
-          different art fields.
+          I first discovered programming in middle school when I started
+          attending programming courses. I spent two years learning basic
+          languages like Pascal and Delphi. After that, I took a break to
+          explore different fields. I had several attempts to become a
+          programmer, but the one that made me feel it was truly my calling was
+          when I got the idea of creating my own plugin for a Minecraft server.
+          As a true fan of the game, I wanted to bring new experiences to
+          players like me. I learned the basics of Java and the entire plugin
+          creation process, spending countless hours grasping different concepts
+          and solving problems. I realized it was one of the few things I could
+          dedicate so much time to.
         </p>
         <p>
-          Later on, I made another attempt to become a programmer by learning C#
-          on my own, but without any clear goals, I ended up giving up on this
-          idea again.
-        </p>
-        <p>
-          My true obsession with creation through programming ignited when I got
-          the idea to make a plug-in for my own Minecraft server. As a true fan
-          of the game, I wanted to create a unique experience for players like
-          me by implementing new systems and rebalancing the game for better
-          immersion in the survival world. I learnt the basics of Java and all
-          the plugin creation process on my own, and spent a large amount of
-          time working with the language and grasping different concepts.
-          Together with my friend, we went through several versions of the
-          plug-in, thinking through all the details. I really enjoyed
-          integrating all these new features seamlessly into the game and
-          realized the true possibilities of programming.
-        </p>
-        <p>
-          Although we found some appreciators of our creation, we struggled with
-          marketing, leading to the project being put on hold.
-        </p>
-        <p>
-          After that, in February 2024, I decided to take my path in the
-          direction of front-end web developement as an exciting and versitile
-          career, hoping to bring new experiences to users of web by
-          contributing to development of innovative projects.
+          In February 2024, at the age of 21, I decided to pursue a career in
+          front-end web development. I see it as an exciting and versatile
+          field, and I hope to bring new experiences to web users by
+          contributing to the development of innovative projects.
         </p>
       </div>
     </section>
@@ -360,7 +384,5 @@
         </div>
       </div>
     </footer>
-    <script src="./scripts/project-img-slider.js"></script>
-    <script src="./scripts/page-animations.js"></script>
   </body>
 </html>

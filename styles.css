@@ -51,7 +51,7 @@ body {
   position: relative;
   width: 100%;
   max-width: min(1400px, 100%);
-  padding: clamp(10rem, 10vw, 20rem) clamp(1.5rem, 5%, 5%);
+  padding: clamp(10rem, 10vw, 10rem) clamp(1.5rem, 5%, 5%);
   box-sizing: border-box;
   margin: auto;
 }
@@ -171,6 +171,30 @@ nav .icon {
   justify-content: center;
 }
 
+.copy-email-button {
+  width: 150px;
+  margin: auto;
+  background-color: transparent;
+  border: 3px solid var(--primary2);
+  border-radius: 5px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+}
+.copy-email-button.copied {
+  animation: email-copied;
+  animation-duration: 2s;
+}
+@keyframes email-copied {
+  0% {
+    background-color: var(--secondary3);
+  }
+  100% {
+    background-color: transparent;
+  }
+}
+
 section {
   position: relative;
 }
@@ -183,6 +207,9 @@ section h3 {
 .projects {
   background-color: var(--primary1);
   color: var(--primary1);
+}
+.projects .wrapper {
+  padding-top: 0;
 }
 
 h2,
@@ -549,12 +576,13 @@ footer {
 footer .wrapper {
   padding: 2rem;
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   align-items: center;
   margin-bottom: 0;
 }
 footer p {
   margin: 0;
+  margin-right: auto;
 }
 footer .contact-links {
   display: flex;
@@ -564,6 +592,11 @@ footer .contact-links svg {
   fill: var(--primary1);
   width: 40px;
   height: 40px;
+}
+footer .copy-email-button {
+  border-color: var(--primary1);
+  color: var(--primary1);
+  margin: 1rem;
 }
 
 .wave {
@@ -577,7 +610,7 @@ footer .contact-links svg {
 }
 .wave.relative {
   position: relative;
-  transform: none;
+  transform: scaleY(1.1);
 }
 
 @media screen and (max-width: 800px) {
@@ -615,6 +648,7 @@ footer .contact-links svg {
     flex-direction: column-reverse;
   }
   footer p {
+    margin: auto;
     margin-top: 2rem;
   }
 }
@@ -713,6 +747,9 @@ nav li:nth-child(3) {
   transition-delay: 2300ms;
 }
 .hero .text a:nth-child(4) {
+  transition-delay: 2400ms;
+}
+.hero .copy-email-button {
   transition-delay: 2400ms;
 }
 

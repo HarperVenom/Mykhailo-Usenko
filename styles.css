@@ -567,6 +567,7 @@ footer .contact-links svg {
 }
 
 .wave {
+  pointer-events: none;
   object-position: center bottom;
   position: absolute;
   top: 0;

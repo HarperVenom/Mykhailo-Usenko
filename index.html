@@ -156,7 +156,6 @@
         </svg>
       </section>
     </header>
-
     <section class="about hidden">
       <img class="wave" src="./assets/wave1.svg" alt="" />
       <div class="wrapper">
@@ -230,18 +229,22 @@
                   It was a real challenge to figure out the way to create a tree
                   of all titles based on a single data field. I've gone through
                   several attempts to create the algorithm for placing each
-                  title in a proper spot to avoid making it look messy.
+                  title in a proper spot to avoid making it look messy. I ended
+                  up separating all the titles in columns by the amount of
+                  parent layers and filling intermidiate levels without titles
+                  with empty blocks that connect two trails.
                 </p>
                 <p>
                   Adding the zoom feature also turned out very difficult for me.
-                  I faced a lot of bugs trying to implement it.
+                  I faced a lot of bugs trying to implement it so that map
+                  wouldn't shift on scale change.
                 </p>
                 <h5>Issues</h5>
                 <p>
                   Though all the listed challenges are partially overcome, the
                   result is still not as good as I wanted it to be. The map may
                   still look unorganized in some cases, and the zoom feature is
-                  far from perfect.
+                  not very flexible.
                 </p>
                 <h5>What I learnt</h5>
                 <p>

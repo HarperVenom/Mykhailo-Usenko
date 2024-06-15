@@ -1,6 +1,6 @@
 :root {
   --primary1: #ffa836;
-  --primary2: #462d16;
+  --primary2: #3b2612;
   --secondary1: #23170b;
   --secondary2: #3f2f1e;
   --secondary3: #d3bda6;
@@ -51,11 +51,9 @@ body {
   position: relative;
   width: 100%;
   max-width: min(1400px, 100%);
-  padding: 5rem clamp(1.5rem, 5%, 5%);
-  padding-top: 0;
+  padding: clamp(10rem, 10vw, 20rem) clamp(1.5rem, 5%, 5%);
   box-sizing: border-box;
   margin: auto;
-  margin-bottom: 5rem;
 }
 
 nav {
@@ -107,6 +105,21 @@ nav .icon {
   padding: 1rem 2rem;
 }
 
+.hero::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    160deg,
+    var(--primary1) 30%,
+    var(--primary1golden)
+  );
+  z-index: -1;
+  transform: scaleY(3);
+}
 .hero {
   display: flex;
   justify-content: center;
@@ -114,11 +127,7 @@ nav .icon {
   height: 100vh;
   min-height: 500px;
   padding: 5%;
-  background: linear-gradient(
-    160deg,
-    var(--primary1) 30%,
-    var(--primary1golden)
-  );
+  background-color: transparent;
   box-sizing: border-box;
 }
 
@@ -127,7 +136,6 @@ nav .icon {
   flex-direction: column;
   font-size: clamp(1rem, 2vw, 2rem);
   margin-right: 5vw;
-  /* overflow: hidden; */
 }
 .hero .icon {
   box-sizing: border-box;
@@ -147,12 +155,15 @@ nav .icon {
   margin-bottom: 1rem;
 }
 
-.contact-links > * {
+.contact-links > a {
   fill: var(--primary2);
   width: 40px;
   height: 40px;
   margin: 0.5rem;
   stroke-width: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 .text .contact-links {
   margin: 0.5rem;
@@ -160,10 +171,18 @@ nav .icon {
   justify-content: center;
 }
 
+section {
+  position: relative;
+}
+
+section h2,
+section h3 {
+  margin-bottom: 5%;
+}
+
 .projects {
-  background-color: var(--primary2);
+  background-color: var(--primary1);
   color: var(--primary1);
-  padding-top: 5rem;
 }
 
 h2,
@@ -178,15 +197,8 @@ h3 {
 }
 
 .projects h2 {
-  color: transparent;
-  background: linear-gradient(
-    to bottom,
-    var(--primary1),
-    var(--primary1golden)
-  );
-  background-clip: text;
-  border-bottom: 2px solid var(--primary1golden);
-  margin-bottom: 5rem;
+  color: var(--primary2);
+  border-bottom: 2px solid var(--primary2);
 }
 
 .project-container {
@@ -197,7 +209,7 @@ h3 {
   box-sizing: border-box;
   overflow: hidden;
 
-  background-color: var(--secondary1);
+  background-color: var(--primary2);
   border-radius: 10px;
   box-shadow: 0 0 10px var(--secondary1);
 }
@@ -237,7 +249,7 @@ h3 {
 
   border: none;
   color: var(--primary1golden);
-  background-color: var(--secondary1);
+  background-color: var(--primary2);
   text-decoration: underline;
   font-size: clamp(1rem, 3vw, 1.1rem);
   cursor: pointer;
@@ -400,9 +412,13 @@ h3 {
   top: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(transparent 75%, var(--secondary1));
+  background: linear-gradient(transparent 75%, var(--primary2));
 }
 
+.about {
+  background-color: var(--primary2);
+  color: var(--primary1golden);
+}
 .about .wrapper {
   position: relative;
   display: flex;
@@ -410,9 +426,15 @@ h3 {
   align-items: center;
 }
 .about h2 {
+  color: transparent;
+  background: linear-gradient(
+    to bottom,
+    var(--primary1),
+    var(--primary1golden)
+  );
+  background-clip: text;
   width: 100%;
-  border-bottom: 2px solid var(--primary2);
-  margin-bottom: 5%;
+  border-bottom: 2px solid var(--primary1golden);
 }
 .about .subhead {
   font-family: "merriweather";
@@ -440,13 +462,15 @@ h3 {
   width: 100%;
   border-bottom: 2px solid var(--primary2);
 }
+.skills h3 {
+  margin-top: 5%;
+}
 .skills .icons {
   display: flex;
   margin: auto;
   width: 100%;
   max-width: min(600px, 100%);
   justify-content: center;
-  margin: 3rem 0;
 }
 .skills .icons > * {
   margin: 0 1rem;
@@ -463,6 +487,7 @@ h3 {
   align-items: center;
 }
 .skills .tool-tip {
+  pointer-events: none;
   opacity: 0;
   position: absolute;
   background-color: var(--primary2);
@@ -474,7 +499,7 @@ h3 {
   box-shadow: 0 0 5px var(--secondary1);
   top: 0;
   left: 50%;
-  transform: translate(-50%, -100%);
+  transform: translate(-50%, -110%);
   transition: opacity 0.3s ease;
 }
 .skills .logo:hover .tool-tip {
@@ -519,7 +544,7 @@ footer {
   color: var(--primary1);
   font-weight: 500;
   font-size: 1.2rem;
-  margin-top: 10rem;
+  margin-top: -1rem;
 }
 footer .wrapper {
   padding: 2rem;
@@ -530,12 +555,28 @@ footer .wrapper {
 }
 footer p {
   margin: 0;
-  margin-top: 0.5rem;
+}
+footer .contact-links {
+  display: flex;
+  flex-direction: row;
 }
 footer .contact-links svg {
   fill: var(--primary1);
   width: 40px;
   height: 40px;
+}
+
+.wave {
+  object-position: center bottom;
+  position: absolute;
+  top: 0;
+  transform: translate(0, -99%);
+  width: 100%;
+  z-index: -1;
+}
+.wave.relative {
+  position: relative;
+  transform: none;
 }
 
 @media screen and (max-width: 800px) {
@@ -571,6 +612,9 @@ footer .contact-links svg {
 @media screen and (max-width: 450px) {
   footer .wrapper {
     flex-direction: column-reverse;
+  }
+  footer p {
+    margin-top: 2rem;
   }
 }
 

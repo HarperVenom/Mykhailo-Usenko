@@ -335,6 +335,7 @@ h3 {
   width: fit-content;
   height: fit-content;
   max-width: 800px;
+  max-height: 30svh;
   overflow: hidden;
   display: flex;
   box-sizing: border-box;

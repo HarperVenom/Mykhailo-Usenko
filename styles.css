@@ -1,11 +1,11 @@
 :root {
-  --primary1: #ffa836;
-  --primary2: #3b2612;
+  --primary1: #ffdfb5;
+  --primary2: #342a21;
   --secondary1: #23170b;
   --secondary2: #3f2f1e;
   --secondary3: #d3bda6;
 
-  --primary1golden: #ffc34a;
+  --primary1golden: #ffefcd;
 
   scroll-behavior: smooth;
 }
@@ -96,7 +96,7 @@ nav a {
   text-decoration: none;
   transition: background-color 0.2s ease, color 0.2s ease;
 }
-nav a:hover {
+nav .scroll:hover {
   background-color: var(--primary2);
   color: var(--secondary3);
 }
@@ -135,12 +135,6 @@ nav .icon {
   display: flex;
   flex-direction: column;
   font-size: clamp(1rem, 2vw, 2rem);
-  margin-right: 5vw;
-}
-.hero .icon {
-  box-sizing: border-box;
-  min-width: 300px;
-  max-width: 450px;
 }
 .text p {
   margin: 0;
@@ -429,8 +423,8 @@ h3 {
   border-radius: 5px;
   width: 100%;
   height: 100%;
-  opacity: 0.7;
-  background-color: #e48e1d;
+  opacity: 0.5;
+  background-color: var(--primary1);
   mix-blend-mode: color;
 }
 .project-container .imgs .overlay {
@@ -616,7 +610,7 @@ footer .copy-email-button {
 @media screen and (max-width: 800px) {
   .hero {
     flex-direction: column-reverse;
-    padding-bottom: 10rem;
+    /* padding-bottom: 10rem; */
   }
   .hero .text {
     margin-right: 0;
@@ -643,7 +637,7 @@ footer .copy-email-button {
   }
 }
 
-@media screen and (max-width: 450px) {
+@media screen and (max-width: 700px) {
   footer .wrapper {
     flex-direction: column-reverse;
   }
@@ -670,95 +664,39 @@ footer .copy-email-button {
   }
 }
 
-.hero .icon.hidden,
-nav .icon.hidden {
-  scale: 0;
-  animation: spin-in;
-  animation-duration: 1.5s;
-  animation-timing-function: cubic-bezier(0.64, 0.02, 0.07, 0.99);
+nav.hidden {
+  transform: translateY(-20%);
+  transition-delay: 200ms;
 }
-.hero .icon.hidden {
-  transition: none;
-}
-nav .icon.hidden {
-  transition-delay: 2300ms;
-  animation-duration: 1s;
-  animation-delay: 2300ms;
-}
-.hero .icon.show,
-nav .icon.show {
-  scale: 1;
-}
-@keyframes spin-in {
-  0% {
-    scale: 0;
-    transform: rotate(360deg);
-  }
-  100% {
-    scale: 1;
-    transform: rotate(0deg);
-  }
-}
-
-nav li:nth-child(1) {
-  transition-delay: 2400ms;
-}
-nav li:nth-child(2) {
-  transition-delay: 2500ms;
-}
-nav li:nth-child(3) {
-  transition-delay: 2600ms;
+nav.show {
+  transform: translateY(0);
 }
 
 .hero .text p:nth-child(1) {
-  transition-delay: 1000ms;
+  transition-delay: 100ms;
 }
 .hero .text p:nth-child(2) {
-  transition-delay: 1200ms;
+  transition-delay: 150ms;
 }
-
-.hero .text h1.hidden {
-  transform: scale(10);
-  transition: all 0.2s cubic-bezier(0, 0, 1, 0.22);
-  transition-delay: 1700ms;
+.hero h1 {
+  transition-delay: 250ms;
 }
-@media screen and (max-width: 500px) {
-  .hero .text h1.hidden {
-    transform: scale(0.1);
-    transition: all 0.2s cubic-bezier(0.3, 0.15, 0.96, -0.15);
-    transition-delay: 1700ms;
-  }
-}
-.hero .text h1.show {
-  transform: scale(1);
-}
-
 .hero .text p:nth-child(4) {
-  transition-delay: 2000ms;
+  transition-delay: 300ms;
 }
 
 .hero .text a:nth-child(1) {
-  transition-delay: 2100ms;
+  transition-delay: 350ms;
 }
 .hero .text a:nth-child(2) {
-  transition-delay: 2200ms;
+  transition-delay: 400ms;
 }
 .hero .text a:nth-child(3) {
-  transition-delay: 2300ms;
+  transition-delay: 450ms;
 }
 .hero .text a:nth-child(4) {
-  transition-delay: 2400ms;
+  transition-delay: 500ms;
 }
 .hero .copy-email-button {
-  transition-delay: 2400ms;
-}
-
-.icons .hidden:nth-child(2) {
-  transition-delay: 100ms;
-}
-.icons .hidden:nth-child(3) {
-  transition-delay: 200ms;
-}
-.icons .hidden:nth-child(4) {
-  transition-delay: 300ms;
+  transition-delay: 550ms;
 }

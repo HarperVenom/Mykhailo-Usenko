@@ -19,7 +19,7 @@
 }
 ::-webkit-scrollbar-thumb {
   background-color: var(--primary1);
-  border: 1px solid black;
+  border: 1px solid var(--primary2);
 }
 .merriweather {
   font-family: "Merriweather";
@@ -48,6 +48,7 @@ body {
 .wrapper {
   position: relative;
   width: 100%;
+  min-height: 100svh;
   max-width: min(1400px, 100%);
   padding: clamp(10rem, 10vw, 10rem) clamp(1.5rem, 5%, 5%);
   box-sizing: border-box;
@@ -143,6 +144,12 @@ nav .icon {
   margin-bottom: 1rem;
 }
 
+.contact {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .contact-links > a {
   fill: var(--primary2);
   width: 40px;
@@ -161,13 +168,12 @@ nav .icon {
 
 .copy-email-button {
   width: 150px;
-  margin: auto;
   background-color: transparent;
   border: 3px solid var(--primary2);
   border-radius: 5px;
-  font-size: 1.2rem;
+  font-size: 1.1rem;
   font-weight: 600;
-  padding: 0.5rem 1rem;
+  padding: 0.4rem 0.8rem;
   cursor: pointer;
   color: var(--primary2);
 }
@@ -177,7 +183,7 @@ nav .icon {
 }
 @keyframes email-copied {
   0% {
-    background-color: var(--primary1);
+    background-color: white;
   }
   100% {
     background-color: transparent;
@@ -454,7 +460,7 @@ h3 {
 .about p {
   padding: 0 1rem;
   text-align: start;
-  font-size: 1.5rem;
+  font-size: clamp(1rem, 5vw, 1.5rem);
   max-width: 700px;
   margin-bottom: 0.3rem;
   font-weight: 350;
@@ -521,17 +527,18 @@ h3 {
   justify-content: center;
 }
 .go-top a {
-  width: 75px;
-  height: 75px;
+  width: 70px;
+  height: 70px;
   border: none;
   background: transparent;
   border-radius: 50%;
   margin: auto;
+  margin-bottom: 5rem;
   font-size: 1.5rem;
   font-weight: 600;
   display: flex;
   align-items: center;
-  padding: 1rem;
+  padding: 0.5rem;
   background-color: var(--primary2);
   box-shadow: 5px 5px 10px var(--primary2);
 
@@ -556,9 +563,9 @@ footer {
   margin-top: -1rem;
 }
 footer .wrapper {
+  min-height: unset;
   padding: 2rem;
   display: flex;
-  /* justify-content: space-between; */
   align-items: center;
   margin-bottom: 0;
 }
@@ -623,6 +630,9 @@ footer .copy-email-button {
   nav .links {
     display: none;
   }
+  .contact {
+    flex-direction: column;
+  }
 }
 
 @media screen and (max-width: 700px) {
@@ -638,7 +648,7 @@ footer .copy-email-button {
 /*Animations*/
 .hidden {
   opacity: 0;
-  transform: translateY(20%);
+  transform: translateY(10%);
   transition: all 0.7s ease;
 }
 .show {

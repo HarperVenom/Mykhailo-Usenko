@@ -67,6 +67,7 @@ nav {
 nav .wrapper {
   padding: 0;
   position: relative;
+  min-height: unset;
 }
 nav ul {
   width: 100%;

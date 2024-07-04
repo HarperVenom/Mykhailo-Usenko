@@ -624,6 +624,9 @@ footer .copy-email-button {
 }
 
 @media screen and (max-width: 650px) {
+  nav {
+    display: none;
+  }
   nav .icon {
     display: none;
   }

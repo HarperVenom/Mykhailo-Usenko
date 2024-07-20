@@ -205,6 +205,12 @@ section h3 {
   color: var(--primary1);
 }
 
+.projects .wrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
 h2,
 h3 {
   font-family: "merriweather";
@@ -434,6 +440,10 @@ h3 {
   height: 100%;
   background: linear-gradient(transparent 75%, var(--primary2));
 }
+.in-progress {
+  font-weight: 300;
+  font-style: italic;
+}
 
 .about {
   background-color: var(--primary2);
@@ -482,20 +492,20 @@ h3 {
   margin-top: 5%;
 }
 .skills .icons {
-  display: flex;
-  margin: auto;
   width: 100%;
-  max-width: min(600px, 100%);
+  display: flex;
   justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  row-gap: 3rem;
+  padding-top: 2rem;
 }
-.skills .icons > * {
-  margin: 0 1rem;
+.skills .logo {
   width: 20%;
   height: 20%;
   max-width: 100px;
   max-height: 100px;
-}
-.skills .logo {
   position: relative;
   margin: 0 2%;
   display: flex;
@@ -515,8 +525,10 @@ h3 {
   box-shadow: 0 0 5px black;
   top: 0;
   left: 50%;
+  max-width: 150px;
   transform: translate(-50%, -110%);
   transition: opacity 0.3s ease;
+  text-align: center;
 }
 .skills .logo:hover .tool-tip {
   opacity: 1;
